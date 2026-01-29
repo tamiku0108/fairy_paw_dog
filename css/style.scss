@@ -1,0 +1,874 @@
+@use 'mixin' as m;
+@use 'header';
+@use 'footer';
+@use 'price';
+@use 'contact';
+
+// -----------------
+header {
+    height: 70px;
+    max-width: 100%;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    padding-inline: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.site-title img {
+    max-width: 100%;
+    padding-top: 15px;
+}
+
+.site-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.site-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+
+    &:hover {
+        color: #00aaff;
+    }
+}
+
+.main-visual {
+    position: relative;
+    /* 子要素の絶対配置を有効にする */
+    width: 100%;
+    height: 682px;
+    /* 画像に合わせて調整 */
+    overflow: hidden;
+}
+
+.main-visual img {
+    width: 100%;
+    // height: 100%;
+    object-fit: cover;
+    /* 画像を縦横比を保ちながら埋める */
+    height: calc(100% - 8%);
+}
+
+.main-text {
+    position: absolute;
+    /* 画像の上に重ねる */
+    top: 60%;
+    /* 縦位置の調整 */
+    left: 1%;
+    /* 横位置の調整 */
+    color: #fff;
+    /* 白文字で見やすく */
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.8;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    /* 文字の影で背景と区別 */
+
+    @include m.sp{
+            font-size: 32px;
+        }
+
+    & p:nth-child(1){
+        padding-left: 50px;
+
+        @include m.sp{
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+
+    & p:nth-child(2){
+        padding-left: 175px;
+
+        @include m.sp{
+            padding-left: 0;
+            text-align: center;
+        }
+    }
+}
+
+// ----------------------------------------ハンバーガーメニュー
+
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #333;
+        border-radius: 2px;
+        transition: .3s;
+    }
+
+    span:nth-child(1) {
+        top: 0;
+    }
+
+    span:nth-child(2) {
+        top: 9px;
+    }
+
+    span:nth-child(3) {
+        top: 18px;
+    }
+}
+
+/* スマホだけ表示 */
+@include m.sp {
+    .hamburger {
+        display: block;
+    }
+
+    .site-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(255, 255, 255, .95);
+        transform: translateX(100%);
+        transition: .4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+
+        ul {
+            flex-direction: column;
+            gap: 30px;
+            font-size: 20px;
+        }
+    }
+
+    .site-menu.active {
+        transform: translateX(0);
+    }
+}
+
+/* バツになる */
+.hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-45deg);
+}
+
+#About {
+    background-image: url("../img/Gemini_Generated_Image_7cxj707cxj707cxj_2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 700px; // ← 高さを指定
+
+    @include m.sp{
+        padding-inline: 10px;
+    }
+
+    .about {
+        text-align: center;
+        margin-top: 100px;
+
+        & h2 {
+            font-size: 20px;
+        }
+
+        p {
+            color: #00aaff;
+        }
+
+        .add {
+            font-size: 32px;
+            color: #000;
+            margin-block: 20px 100px;
+        }
+    }
+}
+
+.title {
+    color: #00aaff;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 70px;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 3px;
+        background-color: #00aaff;
+        top: 140%;
+        left: 49%;
+    }
+}
+
+.about-title {
+    color: white;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 70px;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        top: 140%;
+        left: 49%;
+    }
+}
+
+#About .wrapper {
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+
+
+    .explanation {
+        & p {
+            font-size: 14px;
+            margin-bottom: 30px;
+            margin-top: 50px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        & img {
+            max-width: 380px;
+            max-height: 400px;
+        }
+    }
+
+    @include m.sp {
+        flex-direction: column;
+        padding: 0 20px;
+
+
+        .explanation img {
+            max-width: 100%;
+        }
+    }
+}
+
+
+
+
+#service {
+    background-color: #6dc4c4;
+    /* 水色の背景 */
+    padding: 80px 0;
+    border-radius: 40px;
+    text-align: center;
+}
+
+/* タイトル部分 */
+
+
+#service {
+    color: white;
+}
+
+.add {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    color: white;
+}
+
+/* カード全体（3つ並べる） */
+.feature-img {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    // flex-wrap: wrap;
+    /* レスポンシブ対応 */
+    @include m.sp {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* 各カード */
+.feature-item {
+    background: #fff;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @include m.sp {
+        align-items: center;
+    }
+}
+
+/* ホバー時 */
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* カード内画像 */
+.feature-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* テキスト部分 */
+.item-text {
+    padding: 20px;
+}
+
+.text {
+    font-style: italic;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.text-explanation {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.6;
+    text-align: left;
+}
+
+// Gallery---------------------
+#Gallery {
+    background-image: url("../img/Group 10.png");
+    background-size: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 700px;
+    padding: 20px 50px;
+
+    @include m.sp{
+        padding-inline: 10px;
+    }
+
+    .gallery {
+        text-align: center;
+        margin-top: 40px;
+
+        &-title {
+            font-size: 1.2rem;
+            color: #00aaff;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        // タイトル下のライン
+        & p:nth-of-type(1) {
+            color: #00aaff;
+            position: relative;
+            margin: 0 auto 8px;
+        }
+
+        // キャッチ文
+        .add {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #000;
+            margin-block: 20px 60px;
+        }
+    }
+
+    // ギャラリー画像リスト
+    .pickup-img {
+        display: flex;
+        justify-content: center;
+        // flex-wrap: wrap;
+        // gap: 30px;
+        list-style: none;
+        padding-block: 100px;
+        margin: 0;
+
+        li {
+            overflow: hidden;
+            border-radius: 10px;
+            width: 200px;
+            height: 350px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+                padding-inline: 10px;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+// price--------------------------
+#price {
+    text-align: center;
+    margin-top: 60px;
+
+    @include m.sp{
+        padding-inline: 10px;
+    }
+}
+
+/* 見出し周り */
+#price .about-title {
+    color: #2fa8cc;
+    /* 水色 */
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+#price .about p {
+    margin: 0;
+}
+
+#price .add {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* MENU セクションの横並び配置 */
+#price .inner {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+#price .inner img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+}
+
+/* MENUボタン（画像の中央へ） */
+#price .inner a {
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    padding: 15px 60px;
+    background: rgba(98, 203, 214, 0.8);
+    /* イメージと同じ透明ブルー */
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 3px;
+    border-radius: 6px;
+    backdrop-filter: blur(3px);
+    text-decoration: none;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+
+    @include m.sp {
+        width: 30%;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+}
+
+/* ホバー */
+#price .inner a:hover {
+    background: rgba(98, 203, 214, 1);
+}
+
+
+
+
+/* ================================
+Contact Section
+================================ */
+#contact {
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 150px;
+
+    @include m.sp {
+
+        .paw-wrap,
+        .contact-btn-wrap {
+            max-width: 100%;
+        }
+
+        .dog-pop {
+            right: 10px;
+            width: 100px;
+        }
+
+        padding-inline: 10px;
+    }
+
+    .about-title {
+        font-size: 16px;
+        color: #2fa8cc;
+    }
+
+    p {
+        margin: 0;
+        line-height: 1.8;
+
+        &:nth-of-type(1) {
+            margin-top: 10px;
+            margin-bottom: 40px;
+            color: #666;
+            font-size: 14px;
+        }
+    }
+
+    /* --- 大きいお問い合わせボタン --- */
+    .contact-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 600px;
+        height: 70px;
+
+        background: #73d4d4;
+        border-radius: 40px;
+        font-size: 18px;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+
+        margin: 40px auto 0;
+        text-decoration: none;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+
+        overflow: hidden;
+
+        @include m.sp {
+            max-width: 100%;
+            font-size: 18px;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* → アイコン */
+        &::after {
+            content: "→";
+            font-size: 20px;
+            margin-left: 10px;
+        }
+    }
+
+    /* 右に配置される犬の画像 */
+    .contact-img {
+        position: absolute;
+        right: -40px;
+        width: 110px;
+        top: -15px;
+    }
+}
+
+.con {
+    max-width: 30%;
+    background-color: #6dc4c4;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.contact-section {
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* 足跡配置（バラバラ角度で斜めに） */
+.paw-wrap {
+    position: relative;
+    width: 600px;
+    margin: 50px auto 0;
+    // height: 120px;
+}
+
+.paw {
+    width: 50px;
+    opacity: 0;
+    position: absolute;
+    bottom: -30px;
+    transform: translateY(20px);
+    transition: all .7s ease;
+}
+
+/* ランダムぽくバラけさせる */
+.step1 {
+    left: 0%;
+    transform: rotate(-20deg);
+}
+
+.step2 {
+    left: 19%;
+    transform: rotate(10deg);
+}
+
+.step3 {
+    left: 38%;
+    transform: rotate(-8deg);
+}
+
+.step4 {
+    left: 57%;
+    transform: rotate(14deg);
+}
+
+.step5 {
+    left: 76%;
+    transform: rotate(-15deg);
+}
+
+/* 表示状態 */
+.paw.show {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+/* ボタン */
+.contact-btn-wrap {
+    position: relative;
+    width: 700px;
+    margin: 40px auto;
+}
+
+.contact-btn {
+    display: block;
+    padding: 25px 0;
+    background: #71D1D1;
+    border-radius: 50px;
+    font-size: 22px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 犬のひょこ */
+.dog-pop {
+    width: 150px;
+    position: absolute;
+    right: 20px;
+    /* 初期位置：ちょい外 */
+    top: -52px;
+    opacity: 0;
+    transform: translate(0px, 10px);
+    /* 完全に横へ隠す */
+    transition: all .7s ease;
+
+    @include m.sp{
+        display: none;
+    }
+}
+
+/* ホバーでひょこっ */
+.contact-btn-wrap:hover .dog-pop {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+// ---------------------------------------------
+#footer {
+    background: linear-gradient(to bottom, #d9eef5, #eef8fb);
+    padding: 60px 20px 30px;
+    font-size: 14px;
+    color: #333;
+}
+
+#footer .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Google Map */
+// .footer-map iframe {
+//     width: 100%;
+//     height: 260px;
+//     border: none;
+//     border-radius: 6px;
+//     margin-bottom: 40px;
+// }
+
+/* 情報エリア */
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+
+    @include m.sp {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.footer-menu {
+    min-width: 220px;
+}
+
+.footer-menu .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-menu p {
+    margin: 0 0 6px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 縦線 */
+.divider {
+    width: 1px;
+    background: #999;
+    height: 120px;
+
+    @include m.sp {
+        width: 0;
+        height: 0;
+    }
+}
+
+
+/* SNS */
+.sns {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.sns-icon {
+    font-size: 28px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.sns-icon:hover {
+    opacity: 0.7;
+}
+
+/* コピーライト */
+.copyright {
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+}
+
+#footer .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: block;
+    /* ← ここ重要 */
+}
+
+.footer-map {
+    background: white;
+    padding: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-map iframe {
+    display: block;
+    width: 100%;
+    height: 260px;
+    border: none;
+}
+
+
+
+/* TOPへ戻るボタン */
+#backToTop {
+    position: fixed;
+    right: 30px;
+    bottom: 40px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffd6e8, #cce9ff);
+    border: none;
+    color: #555;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+}
+
+/* 表示状態 */
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ふわふわアニメーション */
+#backToTop.show {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ホバー */
+#backToTop:hover {
+    transform: scale(1.1);
+}

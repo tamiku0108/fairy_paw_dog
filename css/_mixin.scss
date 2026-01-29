@@ -1,0 +1,12 @@
+$sp: 600px;
+$si: 900px;
+
+@mixin sp {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+
+    @media (max-width: ($si)) {
+        @content;
+    }
+}
