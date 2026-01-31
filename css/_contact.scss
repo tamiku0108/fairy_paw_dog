@@ -1,7 +1,12 @@
 @use 'mixin' as m;
 
+main {
+    @include m.sp {
+        padding-inline: 10px;
+    }
+}
 
- /* 電話案内部分 */
+/* 電話案内部分 */
 .contact-info {
     margin-top: 60px;
     text-align: center;
@@ -33,7 +38,7 @@
     color: #666;
 }
 
- /* フォーム部分 */
+/* フォーム部分 */
 .form-container {
     max-width: 480px;
     margin: 60px auto;

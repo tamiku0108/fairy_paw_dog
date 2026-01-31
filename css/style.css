@@ -16,7 +16,6 @@ header {
 
 .site-title img {
   max-width: 100%;
-  padding-top: 15px;
 }
 
 .site-menu ul {
@@ -374,7 +373,18 @@ header {
   max-width: 800px;
   text-align: center;
 }
-.wrapper .menu {
+@media (max-width: 600px) {
+  .wrapper {
+    padding-inline: 10px;
+  }
+}
+@media (max-width: 900px) {
+  .wrapper {
+    padding-inline: 10px;
+  }
+}
+
+.menu {
   color: white;
   background-color: #6dc4c4;
   max-width: 325px;
@@ -385,17 +395,34 @@ header {
   margin-top: 100px;
   margin-bottom: 35px;
 }
-.wrapper .color {
+
+.color {
   color: #00aaff;
   margin-bottom: 50px;
 }
-.wrapper .menu-table li {
+
+.menu-table li {
   margin-bottom: 20px;
   max-width: 550px;
   margin-inline: auto;
+  list-style: none;
 }
-.wrapper .menu-table li ul li:nth-child(1) {
+.menu-table li ul li:nth-child(1) {
   background-color: #00aaff;
+}
+
+.menu-table {
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .menu-table {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 900px) {
+  .menu-table {
+    font-size: 0.85rem;
+  }
 }
 
 p.menu-preface {
@@ -461,8 +488,18 @@ p.menu-preface {
   }
 }
 
+.menu-plan {
+  width: 45%;
+}
+
+.menu-plan img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
 .explanation {
-  width: 50%;
+  width: 55%;
   text-align: left;
 }
 .explanation .course {
@@ -490,6 +527,29 @@ p.menu-preface {
 
 main {
   margin-bottom: 50px;
+}
+
+@media (max-width: 600px) {
+  .menu-plan,
+  .explanation {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .menu-plan,
+  .explanation {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  main {
+    padding-inline: 10px;
+  }
+}
+@media (max-width: 900px) {
+  main {
+    padding-inline: 10px;
+  }
 }
 
 /* 電話案内部分 */

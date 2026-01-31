@@ -1,38 +1,50 @@
 @use 'mixin' as m;
 
-
 .wrapper {
     margin: 0 auto;
     max-width: 800px;
     text-align: center;
 
-    .menu {
-        color: white;
-        background-color: #6dc4c4;
-        max-width: 325px;
-        height: 90px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 10px;
-        margin-top: 100px;
-        margin-bottom: 35px;
-
+    @include m.sp {
+        padding-inline: 10px;
     }
+}
 
-    .color {
-        color: #00aaff;
-        margin-bottom: 50px;
+.menu {
+    color: white;
+    background-color: #6dc4c4;
+    max-width: 325px;
+    height: 90px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+    margin-top: 100px;
+    margin-bottom: 35px;
+
+}
+
+.color {
+    color: #00aaff;
+    margin-bottom: 50px;
+}
+
+.menu-table li {
+    margin-bottom: 20px;
+    max-width: 550px;
+    // background-color: #95d9fb;
+    margin-inline: auto;
+    list-style: none;
+
+    & ul li:nth-child(1) {
+        background-color: #00aaff;
     }
+}
 
-    .menu-table li {
-        margin-bottom: 20px;
-        max-width: 550px;
-        // background-color: #95d9fb;
-        margin-inline: auto;
+.menu-table {
+    font-size: 1rem;
 
-        & ul li:nth-child(1) {
-            background-color: #00aaff;
-        }
+    @include m.sp {
+        font-size: 0.85rem;
     }
 }
 
@@ -59,7 +71,7 @@ p.menu-preface {
 }
 
 
-.menu-plan img{
+.menu-plan img {
     border-radius: 20px;
 }
 
@@ -88,8 +100,18 @@ p.menu-preface {
     }
 }
 
+.menu-plan {
+    width: 45%;
+}
+
+.menu-plan img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
 .explanation {
-    width: 50%;
+    width: 55%;
     text-align: left;
 
     .course {
@@ -114,3 +136,10 @@ main {
     margin-bottom: 50px;
 }
 
+@include m.sp {
+
+    .menu-plan,
+    .explanation {
+        width: 100%;
+    }
+}
