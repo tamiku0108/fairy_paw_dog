@@ -653,6 +653,31 @@ textarea {
   margin-bottom: 10px;
 }
 
+html {
+  font-size: 100%;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+a {
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-size: sans-serif;
+}
+
 #About {
   background-image: url("../img/Gemini_Generated_Image_7cxj707cxj707cxj_2.png");
   background-size: cover;
