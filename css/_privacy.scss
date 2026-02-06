@@ -1,0 +1,14 @@
+@use 'mixin' as m;
+
+.privacy {
+
+    h2 {
+        text-decoration-line: underline;
+        text-decoration-style: double;
+        margin-bottom: 15px;
+    }
+
+    p{
+        margin-bottom: 10px;
+    }
+}

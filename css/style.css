@@ -644,6 +644,15 @@ textarea {
   background-color: #6cc4ca;
 }
 
+.privacy h2 {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  margin-bottom: 15px;
+}
+.privacy p {
+  margin-bottom: 10px;
+}
+
 #About {
   background-image: url("../img/Gemini_Generated_Image_7cxj707cxj707cxj_2.png");
   background-size: cover;
