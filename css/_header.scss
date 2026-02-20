@@ -87,7 +87,7 @@ header {
         padding-left: 175px;
 
         @include m.sp{
-            padding-left: 20;
+            padding-left: 20px;
             text-align: center;
         }
     }
