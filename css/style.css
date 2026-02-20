@@ -83,13 +83,13 @@ header {
 }
 @media (max-width: 600px) {
   .main-text p:nth-child(1) {
-    padding-left: 0;
+    padding-left: 20px;
     text-align: center;
   }
 }
 @media (max-width: 900px) {
   .main-text p:nth-child(1) {
-    padding-left: 0;
+    padding-left: 20px;
     text-align: center;
   }
 }
@@ -1001,8 +1001,7 @@ body {
   font-size: 20px;
   letter-spacing: 3px;
   border-radius: 6px;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   text-decoration: none;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
 }
@@ -1033,13 +1032,8 @@ Contact Section
   text-align: center;
   margin-top: 120px;
   margin-bottom: 150px;
-  /* --- 大きいお問い合わせボタン --- */
-  /* 右に配置される犬の画像 */
 }
 @media (max-width: 600px) {
-  #contact {
-    padding-inline: 10px;
-  }
   #contact .paw-wrap,
   #contact .contact-btn-wrap {
     max-width: 100%;
@@ -1047,12 +1041,12 @@ Contact Section
   #contact .dog-pop {
     right: 10px;
     width: 100px;
+  }
+  #contact {
+    padding-inline: 10px;
   }
 }
 @media (max-width: 900px) {
-  #contact {
-    padding-inline: 10px;
-  }
   #contact .paw-wrap,
   #contact .contact-btn-wrap {
     max-width: 100%;
@@ -1060,6 +1054,9 @@ Contact Section
   #contact .dog-pop {
     right: 10px;
     width: 100px;
+  }
+  #contact {
+    padding-inline: 10px;
   }
 }
 #contact .about-title {
@@ -1075,6 +1072,9 @@ Contact Section
   margin-bottom: 40px;
   color: #666;
   font-size: 14px;
+}
+#contact {
+  /* --- 大きいお問い合わせボタン --- */
 }
 #contact .contact-btn {
   position: relative;
@@ -1094,7 +1094,6 @@ Contact Section
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   transition: 0.3s;
   overflow: hidden;
-  /* → アイコン */
 }
 @media (max-width: 600px) {
   #contact .contact-btn {
@@ -1112,10 +1111,16 @@ Contact Section
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
+#contact .contact-btn {
+  /* → アイコン */
+}
 #contact .contact-btn::after {
   content: "→";
   font-size: 20px;
   margin-left: 10px;
+}
+#contact {
+  /* 右に配置される犬の画像 */
 }
 #contact .contact-img {
   position: absolute;
